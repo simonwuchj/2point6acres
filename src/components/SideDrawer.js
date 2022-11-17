@@ -7,6 +7,15 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
+import {
+  Link
+} from "react-router-dom";
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'isDrawerOpen' && prop !== 'drawerWidth' })(
   ({ theme, isDrawerOpen, drawerWidth }) => ({
@@ -34,6 +43,35 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'isDraw
   }),
 );
 
+export const DrawerListItems = (
+  <React.Fragment>
+    {/* <ListItemButton component={Link} to="/topNews">
+      <ListItemIcon>
+        <NewspaperIcon />
+      </ListItemIcon>
+      <ListItemText primary="新闻" />
+    </ListItemButton> */}
+    <ListItemButton component={Link} to="/forum">
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="工作" />
+    </ListItemButton>
+    <ListItemButton component={Link} to="/forum">
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="生活" />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="收藏" />
+    </ListItemButton>
+  </React.Fragment>
+);
+
 export default function SideDrawer(props) {
     return (
       <Drawer
@@ -55,7 +93,7 @@ export default function SideDrawer(props) {
         </Toolbar>
         <Divider />
         <List component="nav">
-        <Divider sx={{ my: 1 }} />
+          {DrawerListItems}
         </List>
       </Drawer>
     );
